@@ -1,0 +1,12 @@
+# Secrets (GitHub token etc.) – never commit
+.env
+.env.*
+
+# Build output – regenerate with: node tools/build.mjs
+dist/
+
+# OS / editor noise
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

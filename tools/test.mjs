@@ -73,6 +73,8 @@ import { goalState, gameOverState } from '../src/state/result.js';
 import { toBuffer, createTouchState, resolveTouches } from '../src/engine/touch.js';
 import { controlsState, applyCapturedKey } from '../src/state/controls.js';
 import { helpState, helpStep } from '../src/state/help.js';
+import { aboutStep } from '../src/state/about.js';
+import { ABOUT_LINES, SOURCE_URL } from '../src/data/text.js';
 import { ACTION_NAMES, PAD_NAMES, HELP_PAGES } from '../src/data/text.js';
 import { STORE } from '../src/storage.js';
 import { roadQuality, setRoadQuality } from '../src/render/road.js';
@@ -2243,6 +2245,30 @@ test('keys: menu → CONTROLS → new key → the race uses it', () => {
   assert.ok(raceState.inspect().player.speed > 1000, 'rebound key does not accelerate');
   input.onKeyUp({ code: 'KeyI' });
   STORE.data.settings.keys = normalizeBindings(DEFAULT_KEYS);
+});
+
+// ---------------------------------------------------------------- licence
+test('licence: AGPL-3.0 text, notices in the page and the README, ABOUT screen', () => {
+  const license = readFileSync('LICENSE', 'utf8');
+  assert.match(license.split('\n')[0], /GNU AFFERO GENERAL PUBLIC LICENSE/);
+  assert.match(license, /Version 3, 19 November 2007/);
+  assert.ok(license.split('\n').length > 600, 'LICENSE is not the full text');
+  const html = readFileSync('index.html', 'utf8');
+  assert.match(html, /Copyright \(C\) 2026 Noneawe/);
+  assert.match(html, /AGPL-3\.0-or-later/);
+  assert.ok(html.includes(SOURCE_URL), 'source URL missing from index.html (and so from the build)');
+  const readme = readFileSync('README.md', 'utf8');
+  assert.match(readme, /AGPL-3\.0/);
+  assert.ok(readme.includes(SOURCE_URL.replace('https://github.com/', '')) || readme.includes(SOURCE_URL));
+  assert.match(SOURCE_URL, /^https:\/\/github\.com\/[\w-]+\/[\w-]+$/);
+  for (const line of [...ABOUT_LINES, SOURCE_URL, TEXT.copyright, TEXT.aboutHint, TEXT.menuAbout]) {
+    assert.ok(hasGlyphs(line) && line.length * 6 <= CONFIG.screen.width - 16, `does not fit: '${line}'`);
+  }
+  assert.ok(ABOUT_LINES.some((l) => /AFFERO/.test(l)) && ABOUT_LINES.some((l) => /NONEAWE/.test(l)));
+  assert.ok(MENU_ITEMS.includes('about'));
+  assert.equal(aboutStep(pressOnce('back')), 'back');
+  assert.equal(aboutStep(pressOnce('confirm')), 'open');
+  assert.equal(aboutStep(NO_INPUT), '');
 });
 
 // ---------------------------------------------------------------- touch and mobile

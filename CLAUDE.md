@@ -24,6 +24,11 @@ racer in 1980s pixel-art style. The gameplay is inspired by classic
 Goal: a playable, smooth (60 FPS) game that runs offline, has no external
 dependencies and is tuned by editing data, not logic.
 
+License: **AGPL-3.0-or-later**, Copyright (C) 2026 Noneawe (`LICENSE`).
+Keep the notices in `index.html`, the README and the in-game ABOUT screen
+(`ABOUT_LINES`, `SOURCE_URL` in `src/data/text.js`); anything added to the
+project must be compatible with this licence.
+
 ---
 
 ## 2. Ground rules (never break them)
@@ -117,6 +122,7 @@ the matching information to the overlay if it helps testing.
 ├── AGENTS.md            ← this file (CLAUDE.md)
 ├── CHANGELOG.md         ← change history
 ├── README.md            ← project page
+├── LICENSE              ← GNU AGPL-3.0 full text
 ├── index.html           ← development entry point
 ├── docs/screenshots/    ← README images only (never loaded by the game)
 ├── src/
@@ -209,8 +215,8 @@ Rules:
 ### 7.2 State machine
 
 States: `boot → title → menu → race ⇄ pause → goal | gameOver → nameEntry → title`;
-the menu also opens `controls` (key bindings) and `help` (instructions),
-both returning to `menu`.
+the menu also opens `controls` (key bindings), `help` (instructions) and
+`about` (copyright, licence, source link), all returning to `menu`.
 Each state exports `enter()`, `exit()`, `update(dt)`, `render()`.
 Transitions only through `setState(name, params)`. No flags like
 `isPaused` scattered around the code.

@@ -1,5 +1,8 @@
 # NEON COAST '86
 
+[![License: AGPL-3.0-or-later](https://img.shields.io/badge/license-AGPL--3.0--or--later-blue.svg)](LICENSE)
+[![Play online](https://img.shields.io/badge/play-online-ff4fa0.svg)](https://noneawe.github.io/neon-coast-86/)
+
 A pseudo-3D arcade racer for the browser in 1980s pixel-art style. A red convertible, the coast, the
 desert and a pine forest at dusk, 15 sections arranged as a pyramid, 5 different goals and a clock that
 counts down without mercy.
@@ -106,7 +109,7 @@ src/
   gfx/      pixel art as ASCII data + frame generators
   audio/    mixer, synthesizer, sequencer, songs, effects
   data/     sections, themes, vehicles, tasks, goals, texts
-  state/    screens: title, menu, race, pause, results, name entry, controls, how to play
+  state/    screens: title, menu, race, pause, results, name entry, controls, how to play, about
 tools/      single-file build, tests
 ```
 
@@ -121,3 +124,17 @@ formats, the Definition of Done of every stage and the report format. The stage-
 [`CHANGELOG.md`](CHANGELOG.md), together with the list of known issues.
 
 All content – graphics, music, route names and the car – is original.
+
+## License
+
+Copyright (C) 2026 Noneawe
+
+NEON COAST '86 is free software: you can redistribute it and/or modify it under the terms of the
+**GNU Affero General Public License v3.0 or later** (SPDX: `AGPL-3.0-or-later`, see [`LICENSE`](LICENSE)).
+
+In short: you may play, study, change and share the game. If you share a changed version – including
+running it on a website for others to play – you must make its complete source code available under the
+same license and keep this copyright notice. The game comes with no warranty.
+
+Original source code: https://github.com/Noneawe/neon-coast-86 – the in-game **ABOUT** screen shows the
+licence and this address.

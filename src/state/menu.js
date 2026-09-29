@@ -1,5 +1,6 @@
 // Main menu: start, mode (normal / passenger), radio song with preview,
-// three volume sliders, key bindings and how-to-play pages. Works with
+// three volume sliders, key bindings, how-to-play pages and the about /
+// licence screen. Works with
 // keyboard and gamepad through actions; settings are saved when they change.
 
 import { CONFIG } from '../config.js';
@@ -12,9 +13,9 @@ import { renderSky } from '../render/sky.js';
 import { radioSelect, radioOn, songNames } from '../audio/sfx.js';
 import { setChannelVolume } from '../audio/mixer.js';
 
-export const MENU_ITEMS = ['start', 'mode', 'radio', 'music', 'sfx', 'engine', 'controls', 'help', 'back'];
+export const MENU_ITEMS = ['start', 'mode', 'radio', 'music', 'sfx', 'engine', 'controls', 'help', 'about', 'back'];
 const LABELS = [TEXT.menuStart, TEXT.menuMode, TEXT.menuRadio, TEXT.menuMusic, TEXT.menuSfx, TEXT.menuEngine,
-  TEXT.menuControls, TEXT.menuHelp, TEXT.menuBack];
+  TEXT.menuControls, TEXT.menuHelp, TEXT.menuAbout, TEXT.menuBack];
 const VOLUMES = ['music', 'sfx', 'engine'];
 const BG_OFFSETS = [0, 0, 0];
 
@@ -34,7 +35,7 @@ function refreshValues(m) {
   const steps = CONFIG.menu.volumeSteps;
   m.values = [null, m.passenger ? TEXT.modePassenger : TEXT.modeNormal, songNames()[m.radio],
     String(Math.round((m.music / steps) * 100)), String(Math.round((m.sfx / steps) * 100)),
-    String(Math.round((m.engine / steps) * 100)), null, null, null];
+    String(Math.round((m.engine / steps) * 100)), null, null, null, null];
 }
 
 function change(m, id, dir) {
@@ -48,7 +49,7 @@ function change(m, id, dir) {
 }
 
 /** Items that open another screen when confirmed. */
-const LINKS = ['start', 'back', 'controls', 'help'];
+const LINKS = ['start', 'back', 'controls', 'help', 'about'];
 
 /**
  * Applies one step of menu input. Returns 'start', 'back', 'controls', 'help', the id of a changed item, or ''.
@@ -100,7 +101,7 @@ export const menuState = {
       setState('title', {});
       return;
     }
-    if (act === 'controls' || act === 'help') {
+    if (act === 'controls' || act === 'help' || act === 'about') {
       setState(act, {});
       return;
     }
@@ -113,8 +114,8 @@ export const menuState = {
   render(ctx) {
     renderSky(ctx, 'pineDusk', 'pineDusk', 1, BG_OFFSETS);
     drawLogo(ctx, 16);
-    panel(ctx, 50, 74, 220, 128);
-    drawList(ctx, LABELS, menu.values, menu.cursor, 80, 150);
-    centered(ctx, TEXT.menuHint, 212, CONFIG.hud.colors.dim, 1);
+    panel(ctx, 50, 70, 220, 140);
+    drawList(ctx, LABELS, menu.values, menu.cursor, 76, 150);
+    centered(ctx, TEXT.menuHint, 218, CONFIG.hud.colors.dim, 1);
   },
 };

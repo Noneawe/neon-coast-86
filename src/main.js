@@ -1,5 +1,6 @@
 // Bootstrap: reads URL params, creates screen, input, audio, sprite cache and
 // loop, registers states and starts the game in the boot state.
+// NEON COAST '86 – Copyright (C) 2026 Noneawe – AGPL-3.0-or-later, see LICENSE.
 
 import { CONFIG } from './config.js';
 import { parseParams } from './engine/params.js';
@@ -27,6 +28,7 @@ import { pauseState } from './state/pause.js';
 import { nameEntryState } from './state/name-entry.js';
 import { controlsState } from './state/controls.js';
 import { helpState } from './state/help.js';
+import { aboutState } from './state/about.js';
 import { STORE } from './storage.js';
 import { initHud } from './render/hud.js';
 import { SECTIONS } from './data/sections.js';
@@ -67,6 +69,7 @@ registerState('pause', pauseState);
 registerState('nameEntry', nameEntryState);
 registerState('controls', controlsState);
 registerState('help', helpState);
+registerState('about', aboutState);
 registerState('goal', goalState);
 registerState('gameOver', gameOverState);
 

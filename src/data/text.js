@@ -1,6 +1,25 @@
 // Every UI string in one place. Plain uppercase ASCII so the bitmap font
 // can draw it.
 
+/** Where players get the source code (AGPL-3.0 section 13). */
+export const SOURCE_URL = 'https://github.com/Noneawe/neon-coast-86';
+
+/** ABOUT screen: copyright and licence notice (each line fits the 320 px screen). */
+export const ABOUT_LINES = [
+  "NEON COAST '86",
+  'COPYRIGHT (C) 2026 NONEAWE',
+  '',
+  'FREE SOFTWARE: YOU MAY SHARE AND CHANGE IT',
+  'UNDER THE GNU AFFERO GENERAL PUBLIC',
+  'LICENSE, VERSION 3 OR LATER.',
+  '',
+  'IF YOU SHARE A CHANGED VERSION, EVEN AS A',
+  'WEBSITE, YOU MUST SHARE ITS SOURCE CODE',
+  'UNDER THE SAME LICENSE.',
+  '',
+  'NO WARRANTY. SOURCE CODE AND FULL LICENSE:',
+];
+
 /** Names of rebindable actions and their fixed gamepad buttons (CONTROLS screen). */
 export const ACTION_NAMES = {
   accelerate: 'ACCELERATE',
@@ -118,6 +137,9 @@ export const TEXT = {
   rank: 'RANK',
   noSave: 'SCORES NOT SAVED (STORAGE BLOCKED)',
   rotate: 'TURN YOUR PHONE SIDEWAYS',
+  copyright: '(C) 2026 NONEAWE - AGPL-3.0',
+  menuAbout: 'ABOUT',
+  aboutHint: 'ENTER OPEN SOURCE PAGE  ESC BACK',
   menuControls: 'CONTROLS',
   menuHelp: 'HOW TO PLAY',
   controlsTitle: 'CONTROLS',

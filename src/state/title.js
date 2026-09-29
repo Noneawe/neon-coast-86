@@ -49,6 +49,7 @@ export const titleState = {
       drawLogo(ctx, 40);
     }
     centered(ctx, TEXT.demo, 190, c.dim, 1);
+    centered(ctx, TEXT.copyright, 8, c.text, 1);
     if (Math.floor(timer / CONFIG.title.blinkInterval) % 2 === 0) centered(ctx, TEXT.pressStart, 176, c.select, 1);
   },
 };

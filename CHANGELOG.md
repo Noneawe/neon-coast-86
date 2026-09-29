@@ -1,5 +1,17 @@
 # CHANGELOG – NEON COAST '86
 
+## [License] 2026-09-29 – GNU AGPL-3.0
+
+### Added
+- `LICENSE`: the official GNU Affero General Public License v3.0 text (from gnu.org);
+  Copyright (C) 2026 Noneawe, licensed AGPL-3.0-or-later.
+- In game: "(C) 2026 NONEAWE - AGPL-3.0" on the title screen and a new ABOUT menu screen with the copyright,
+  a short licence summary and the source code address; ENTER / A opens the repository in a new tab
+  (AGPL section 13: players can get the source of the version they play).
+- Copyright and licence notice in `index.html` (so it is also in the single-file build), the README
+  (badge + License section) and `CLAUDE.md`.
+- 1 new test – 122 in total (licence text, notices, ABOUT texts fit the screen).
+
 ## [Docs] 2026-09-29 – English documentation and GitHub page
 
 ### Added

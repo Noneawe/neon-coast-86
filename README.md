@@ -7,6 +7,8 @@ counts down without mercy.
 Plain JavaScript, Canvas 2D and Web Audio – **no libraries, no image files, no sound files**.
 Every sprite pixel, every sky, the engine sound and all three radio songs are generated in code from data.
 
+**▶ Play it in your browser: https://noneawe.github.io/neon-coast-86/**
+
 ![The coast – Palm Harbor Run](docs/screenshots/race-coast.png)
 
 ## Gallery
@@ -47,7 +49,10 @@ Every sprite pixel, every sky, the engine sound and all three radio songs are ge
 
 ## Running the game
 
-All you need is a browser (plus Node.js 18+ for the build and the tests – no npm packages).
+The easiest way is the online version: **https://noneawe.github.io/neon-coast-86/**
+(keyboard, gamepad or touch; on a phone hold it sideways).
+
+To run it locally all you need is a browser (plus Node.js 18+ for the build and the tests – no npm packages).
 
 ```bash
 # development mode (ES modules need an HTTP server)
